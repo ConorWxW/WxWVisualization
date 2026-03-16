@@ -13,7 +13,7 @@ export default function Home() {
 
       <main>
         <div id="container" style={{ width: "400px", height: "400px" }}>
-          <script src="/graphy.js"></script>
+          <script src="graphy.js"></script>
         </div>
         
       </main>
