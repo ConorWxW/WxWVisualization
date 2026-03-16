@@ -5,20 +5,26 @@ import Footer from '@components/Footer'
 
 export default function Home() {
   return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quick Sigma.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/2.4.0/sigma.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/graphology/0.25.4/graphology.umd.min.js"></script>
+  </head>
+  <body style="background: lightgrey">
+    <div id="container" style="width: 800px; height: 600px; background: white"></div>
+    <script>
+      // Create a graphology graph
+      const graph = new graphology.Graph();
+      graph.addNode("1", { label: "Node 1", x: 0, y: 0, size: 10, color: "blue" });
+      graph.addNode("2", { label: "Node 2", x: 1, y: 1, size: 20, color: "red" });
+      graph.addEdge("1", "2", { size: 5, color: "purple" });
 
-      <main>
-        <div id="container" style={{ width: "400px", height: "400px" }}>
-          <script src="graphy.js"></script>
-        </div>
-        
-      </main>
-
-      <Footer />
-    </div>
+      // Instantiate sigma.js and render the graph
+      const sigmaInstance = new Sigma(graph, document.getElementById("container"));
+    </script>
+  </body>
+</html>
   )
 }
