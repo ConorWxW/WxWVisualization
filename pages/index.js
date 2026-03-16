@@ -1,20 +1,23 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-
+import Graph from "graphology";
+import Sigma from "sigma";
 
 export default function Home() {
   return (
-    <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Quick Sigma.js Example</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/2.4.0/sigma.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/graphology/0.25.4/graphology.umd.min.js"></script>
-  </head>
-  <body style="background: lightgrey">
-    <div id="container" style="width: 800px; height: 600px; background: white"></div>
-    <script>
+<html lang="en">
+  <body>
+    <SigmaCan />
+  </body>
+</html>
+  )
+}
+
+
+
+function SigmaCan () {
+
       // Create a graphology graph
       const graph = new graphology.Graph();
       graph.addNode("1", { label: "Node 1", x: 0, y: 0, size: 10, color: "blue" });
@@ -23,8 +26,5 @@ export default function Home() {
 
       // Instantiate sigma.js and render the graph
       const sigmaInstance = new Sigma(graph, document.getElementById("container"));
-    </script>
-  </body>
-</html>
-  )
-}
+
+};
